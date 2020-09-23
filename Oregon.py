@@ -49,7 +49,7 @@ else:
       return_num = 1
   year_set = int(year_set)
   print('Which mode do you want to play?')
-  mode_choice = input('(easy):')
+  mode_choice = input('(easy) More modes comming soon:')
 
 #leap year function
 '''
@@ -68,18 +68,18 @@ else:
 while len(mode_choice) >= 0:
 #easy mode:
   if mode_choice == 'easy':
-    food_num = 1000
-    health_num = 100
+    food_num = 999999
+    health_num = 9999
     break
 #impossible mode:
   elif mode_choice == 'impossible':
-    food_num = 15
-    health_num = 2
+    food_num = 10
+    health_num = 3
     break
 #error
   else:
     print("Bad input, try again!")
-    mode_choice = input('(easy):')
+    mode_choice = input('(easy) More modes are comming soon:')
 
 
 #other basic strating value setting
@@ -118,14 +118,16 @@ def add_days(min, max):
 
   #acident
   if acident_appear >= days_pass and acident_appear <= check_big:
-    a_number = random.randint(1, 3)
-    a_health_num = random.randint(1, 2)
+    a_number = random.randint(1, 4)
+    a_health_num = random.randint(1, 5)
     if a_number == 1:
       print('During this time, you crossed a river.')
     if a_number == 2:
       print('During this time, you had a dysentery.')
     if a_number == 3:
       print('During this time, you fell in a hole')
+    if a_number == 4:
+      print('A storm hit')
     random_result2_food = random.randint(1, 10)
     random_result2_day = random.randint(1, 10)
     print('As a result, you eat '+str(random_result2_food)+' lbs extra food.')
@@ -238,13 +240,13 @@ time.sleep(2)
 print('Successfully!')
 time.sleep(0.5)
 print('Now game is ready!')
-print('--------------------------------------')
+print('----------------------------------------')
 print('Attention:')
-print('We will be recreating Oregon Trail! The goal is to travel from NYC to')
+print('We will be recreating Oregon Trail! The goal is to travel from New York City to')
 print('Oregon (2000 miles) by Dec 31st. However, the trail is arduous. Each')
 print('day costs you food and health. You can hunt and rest, but you have to')
 print('get there before winter. GOOD LUCK!')
-print('--------------------------------------')
+print('----------------------------------------')
 
 #main
 while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_num < 13:
