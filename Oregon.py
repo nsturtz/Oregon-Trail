@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 '''
 update histoty
---0.0.1:
+--0.0.2:
 Yeah! The fisrt beta version is published!
 '''
 
@@ -33,7 +33,7 @@ while len(player_name) >= 0:
 #easter eggs for name
 if player_name == 'Nate Sturtz':
   year_set = 2005
-  mode_choice = 'impossible'
+  mode_choice = 'easter'
 else:
   year_set = input('Enter a year whatever you like:')
   if year_set.isdigit():
@@ -72,7 +72,7 @@ while len(mode_choice) >= 0:
     health_num = 9999
     break
 #impossible mode:
-  elif mode_choice == 'impossible':
+  elif mode_choice == 'easter':
     food_num = 10
     health_num = 3
     break
@@ -314,7 +314,7 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print("　　　　 　 　　 　 　ィ´　丁| i ヽヽ_ _// ﾊ￣/ ヽ")
     print("　　　 　　 　　 　 /│　　V| i　 ゝ--く / ハ′ ハ")
     print("　　　　　　　　 　l　 ヽ　　|　ゝハ:::::::ハ │|　/　 |")
-    print('verson:0.0.1')
+    print('verson:0.0.2')
     print('author: Nate Sturtz')
     print('Technical nerd change the world!')
     print('Any bug reports please email: nate.sturtz.net@gmail.com')
