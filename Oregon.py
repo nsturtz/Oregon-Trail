@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 '''
 update histoty
---0.0:
+--0.0.1:
 Yeah! The fisrt beta version is published!
 '''
 
@@ -312,7 +312,7 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print("　　　　 　 　　 　 　ィ´　丁| i ヽヽ_ _// ﾊ￣/ ヽ")
     print("　　　 　　 　　 　 /│　　V| i　 ゝ--く / ハ′ ハ")
     print("　　　　　　　　 　l　 ヽ　　|　ゝハ:::::::ハ │|　/　 |")
-    print('verson:1.3.1')
+    print('verson:0.0.1')
     print('author: Nate Sturtz')
     print('Technical nerd change the world!')
     print('Any bug reports please email: nate.sturtz.net@gmail.com')
