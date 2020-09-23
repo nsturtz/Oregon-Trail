@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 '''
 update histoty
---0.0.1:
+--0.0.2:
 Yeah! The fisrt beta version is published!
 --0.0.2:
 More Disasters
@@ -78,7 +78,7 @@ while len(mode_choice) >= 0:
     break
 #impossible mode:
   elif mode_choice == 'easter':
-    food_num = 4
+    food_num = 10
     health_num = 3
     break
 #error
