@@ -3,6 +3,10 @@
 update histoty
 --0.0.2:
 Yeah! The fisrt beta version is published!
+--0.0.2:
+More Disasters
+--0.0.3:
+Bugs and Easter Eggs
 '''
 
 #import
@@ -18,11 +22,14 @@ player_name = input('What is your name:')
 while len(player_name) >= 0:
   if len(player_name) > 1:
     print(str(player_name)+"? It is a good name.")
+    print('Which mode do you want to play?')
+    mode_choice = input('(easy) More modes comming soon:')
     break
   if len(player_name) == 1:
-    player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter?(y/n):")
+    player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regreat it (Y/N):")
     if player_name_choice == "y" or player_name_choice == "Y":
       print("Ok...")
+      mode_choice = 'easter'
       break
     if player_name_choice == "n" or player_name_choice == "N":
       player_name = input('What is your name:')
@@ -41,15 +48,13 @@ else:
   else:
     return_num = 1
   while return_num == 1:
-    print('Erro,please try again!')
+    print('Error,please try again!')
     year_set = input('Enter a year whatever you like:')
     if year_set.isdigit():
       return_num = 0
     else:
       return_num = 1
   year_set = int(year_set)
-  print('Which mode do you want to play?')
-  mode_choice = input('(easy) More modes comming soon:')
 
 #leap year function
 '''
@@ -314,7 +319,7 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print("　　　　 　 　　 　 　ィ´　丁| i ヽヽ_ _// ﾊ￣/ ヽ")
     print("　　　 　　 　　 　 /│　　V| i　 ゝ--く / ハ′ ハ")
     print("　　　　　　　　 　l　 ヽ　　|　ゝハ:::::::ハ │|　/　 |")
-    print('verson:0.0.2')
+    print('verson:0.0.3')
     print('author: Nate Sturtz')
     print('Technical nerd change the world!')
     print('Any bug reports please email: nate.sturtz.net@gmail.com')
