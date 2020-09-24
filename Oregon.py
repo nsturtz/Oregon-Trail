@@ -21,9 +21,7 @@ Name list
 Now you have to run it with python3
 --0.0.4
 Added the Hard Mode
-Edited the about screen
-added versioning
-added changelog command
+Added different lengths
 '''
 
 #import
@@ -138,18 +136,21 @@ while len(mode_choice) >= 0:
     food_num = 999
     health_num = 10
     max_health = 10
+    distance = 2170
     break
 #Hard Mode
   if mode_choice == 'hard' or mode_choice == 'Hard':
     food_num = 100
     health_num = 9
     max_health = 7
+    distance = 3000
     break
 #Easter mode:
   elif mode_choice == 'easter':
     food_num = 10
     health_num = 3
     max_health = 3
+    distance = 3170
     break
 #error
   else:
@@ -328,7 +329,7 @@ print('Now game is ready!')
 print('----------------------------------------')
 print('Attention:')
 print('We will be travling Oregon Trail! The goal is to travel from New York City to')
-print('Oregon (2,170 miles) by Dec 31st. However, the trail is arduous. Each')
+print('Oregon ('+ str(distance) +  ' miles) by Dec 31st. However, the trail is arduous. Each')
 print('day costs you food and health. You can hunt and rest, but you have to')
 print('get there before winter. GOOD LUCK!')
 print('[travel]: moves you randomly between 30-60 miles and takes 3-7 days (random).')
@@ -340,7 +341,7 @@ print('version: ' + version_num)
 print('----------------------------------------')
 
 #main
-while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_num < 13:
+while player_move_distance < distance and food_num > 0 and health_num > 0 and month_num < 13:
   month_appear_fun()
   if food_num <= 50:
     print('Warning! You only have '+ str(food_num) + " lbs food now.")
@@ -365,7 +366,7 @@ while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_
     print('-Food:',food_num,"lbs")
     print('-Health:',health_num)
     print('-Distance traveled:',player_move_distance)
-    distance_left = 2170 - player_move_distance
+    distance_left = distance - player_move_distance
     print('-'+str(total_days) +' days have passed.')
     print('-You have travled ' + str(player_move_distance) + " miles, there is still " + str(distance_left) + ' miles left.')
     status_total_num += 1
@@ -419,7 +420,7 @@ while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_
     print("This Choice is not available, please try again.")
   print('-------------------------------------------------')
 #succeed!
-if player_move_distance >= 2170:
+if player_move_distance >= distance:
   print('Nice job! you have arrived in Oregon')
 
 #game over
