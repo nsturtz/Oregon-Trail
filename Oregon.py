@@ -13,15 +13,17 @@ Changed the ASCII Easter Egg Art
 Changed the Name Easter Egg
 Added the Options to the weclome screen
 Added Weclome ASCII art
+Acidents are more common
+Made the road from 2000 to 2170
+Made a list of Easter Names
 '''
-
 #import
 import random
 import time
 #import smtplib send email import
 
 #welcom player
-print('Welcome to the game:')
+print('Welcome to the')
 print('''
 ------------------------------------------------------------------------------------------------------------------------
 |:'#######::'########::'########::'######::::'#######::'##::: ##::::'########:'########:::::'###::::'####:'##::::::::::|
@@ -62,14 +64,14 @@ time.sleep(0.5)
 player_name = input('What is your name:')
 while len(player_name) >= 0:
   if len(player_name) > 1:
-    print(str(player_name)+"? It is a good name.")
+    print("Weclome" + str(player_name))
     print('Which mode do you want to play?')
     mode_choice = input('(easy) More modes comming soon:')
     break
   if len(player_name) == 1:
     player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regreat it (Y/N):")
     if player_name_choice == "y" or player_name_choice == "Y":
-      print("Ok...")
+      print("Ok Your Choice!!...")
       mode_choice = 'easter'
       break
     if player_name_choice == "n" or player_name_choice == "N":
@@ -78,8 +80,15 @@ while len(player_name) >= 0:
     print("You do not type anything, try again")
     player_name = input('What is your name:')
 
+#Check Easter Egg Names
+easter_names = ["nate sturtz", "Nate Sturtz", "Nate", "nate", "Sturtz", "sturtz"]
+if player_name in easter_names:
+    easter_mode = 1
+else:
+    easter_mode = 0
 #easter eggs for name
-if player_name == 'Nate Sturtz' or player_name == 'Nate' or player_name == 'nate' :
+
+if easter_mode == 1:
   year_set = 2005
   mode_choice = 'easter'
 else:
@@ -116,11 +125,13 @@ while len(mode_choice) >= 0:
   if mode_choice == 'easy':
     food_num = 999
     health_num = 10
+    max_health = 10
     break
 #impossible mode:
   elif mode_choice == 'easter':
     food_num = 10
     health_num = 3
+    max_health = 3
     break
 #error
   else:
@@ -137,7 +148,7 @@ MONTHS_WITH_31_DAYS = [1, 3, 5, 7, 8, 10, 12]
 random_result = 0
 health_d1 = random.randint(1, 31)
 health_d2 = random.randint(1, 31)
-acident_appear = random.randint(1, 30)
+acident_appear = random.randint(1, 5)
 travel_total_num = 0
 rest_total_num = 0
 hunt_total_num = 0
@@ -163,7 +174,7 @@ def add_days(min, max):
   check_big = days_pass + random_result
 
   #acident
-  if acident_appear >= days_pass and acident_appear <= check_big:
+  if acident_appear == 1 or easter_mode == 1:
     a_number = random.randint(1, 8)
     a_health_num = random.randint(1, 5)
     if a_number == 1:
@@ -244,8 +255,8 @@ def hunt(hunting_food):
   global days_pass
   global hunt_total_num
   add_days(2,5)
-  hunting_food = hunting_food + 200
-  print('Gain: 200 lbs food')
+  hunting_food = hunting_food + 100
+  print('Gain: 100 lbs food')
   hunt_total_num += 1
   return hunting_food
 
@@ -297,8 +308,8 @@ time.sleep(0.5)
 print('Now game is ready!')
 print('----------------------------------------')
 print('Attention:')
-print('We will be recreating Oregon Trail! The goal is to travel from New York City to')
-print('Oregon (2000 miles) by Dec 31st. However, the trail is arduous. Each')
+print('We will be travling Oregon Trail! The goal is to travel from New York City to')
+print('Oregon (2,170 miles) by Dec 31st. However, the trail is arduous. Each')
 print('day costs you food and health. You can hunt and rest, but you have to')
 print('get there before winter. GOOD LUCK!')
 print('[travel]: moves you randomly between 30-60 miles and takes 3-7 days (random).')
@@ -309,7 +320,7 @@ print('[quit]: will end the game.')
 print('----------------------------------------')
 
 #main
-while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_num < 13:
+while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_num < 13:
   month_appear_fun()
   if food_num <= 50:
     print('Warning! You only have '+ str(food_num) + " lbs food now.")
@@ -322,11 +333,11 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
   if choice == 'travel' or choice == 'Travel':
     player_move_distance = travle1(player_move_distance)
   elif choice == 'rest' or choice == 'Rest':
-    if health_num < 5:
+    if health_num < max_health:
       print("You get 1 heath!")
       health_num = rest(health_num)
-    if health_num >= 5:
-      print("Your health is full, the maximum number for health is 5!")
+    if health_num >= max_health:
+      print("Your health is full, the maximum number for health is: " + max_health + "!")
   elif choice == 'hunt' or choice == 'Hunt':
     food_num = hunt(food_num)
   elif choice == 'status' or choice =='Status':
@@ -334,7 +345,7 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print('-Food:',food_num,"lbs")
     print('-Health:',health_num)
     print('-Distance traveled:',player_move_distance)
-    distance_left = 2000 - player_move_distance
+    distance_left = 2170 - player_move_distance
     print('-'+str(total_days) +' days have passed.')
     print('-You have travled ' + str(player_move_distance) + " miles, there is still " + str(distance_left) + ' miles left.')
     status_total_num += 1
@@ -372,9 +383,9 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print('Thanks for playing!')
   else:
     print("This Choice is not available, please try again.")
-  print('--------------------------------------')
+  print('-------------------------------------------------')
 #succeed!
-if player_move_distance >= 2000:
+if player_move_distance >= 2170:
   print('Nice job! you have arrived in Oregon')
 
 #game over
