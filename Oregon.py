@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 '''
 update histoty
@@ -16,6 +17,9 @@ Added Weclome ASCII art
 Acidents are more common
 Made the road from 2000 to 2170
 Made a list of Easter Names
+Bugs, see https://stackoverflow.com/questions/64051327/how-do-i-check-if-a-name-is-among-a-list-of-names-in-python for more details
+Name list
+Now you have to run it with python3
 '''
 #import
 import random
@@ -81,7 +85,7 @@ while len(player_name) >= 0:
     player_name = input('What is your name:')
 
 #Check Easter Egg Names
-easter_names = ["nate sturtz", "Nate Sturtz", "Nate", "nate", "Sturtz", "sturtz"]
+easter_names = ["nate sturtz","Nate Sturtz", "Nate", "nate", "Sturtz", "sturtz"]
 if player_name in easter_names:
     easter_mode = 1
 else:
@@ -337,7 +341,7 @@ while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_
       print("You get 1 heath!")
       health_num = rest(health_num)
     if health_num >= max_health:
-      print("Your health is full, the maximum number for health is: " + max_health + "!")
+      print("Your health is full, the maximum number for health is: " + str(max_health) + "!")
   elif choice == 'hunt' or choice == 'Hunt':
     food_num = hunt(food_num)
   elif choice == 'status' or choice =='Status':
