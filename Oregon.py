@@ -8,6 +8,11 @@ More Disasters
 --0.0.3:
 Bugs and Easter Eggs
 ASCII Art Easter egg
+Added more Disasters
+Changed the ASCII Easter Egg Art
+Changed the Name Easter Egg
+Added the Options to the weclome screen
+Added Weclome ASCII art
 '''
 
 #import
@@ -16,7 +21,42 @@ import time
 #import smtplib send email import
 
 #welcom player
-print('Welcome to the game Oregon Trail ')
+print('Welcome to the game:')
+print('''
+------------------------------------------------------------------------------------------------------------------------
+|:'#######::'########::'########::'######::::'#######::'##::: ##::::'########:'########:::::'###::::'####:'##::::::::::|
+|'##.... ##: ##.... ##: ##.....::'##... ##::'##.... ##: ###:: ##::::... ##..:: ##.... ##:::'## ##:::. ##:: ##::::::::::|
+| ##:::: ##: ##:::: ##: ##::::::: ##:::..::: ##:::: ##: ####: ##::::::: ##:::: ##:::: ##::'##:. ##::: ##:: ##::::::::::|
+| ##:::: ##: ########:: ######::: ##::'####: ##:::: ##: ## ## ##::::::: ##:::: ########::'##:::. ##:: ##:: ##::::::::::|
+| ##:::: ##: ##.. ##::: ##...:::: ##::: ##:: ##:::: ##: ##. ####::::::: ##:::: ##.. ##::: #########:: ##:: ##::::::::::|
+| ##:::: ##: ##::. ##:: ##::::::: ##::: ##:: ##:::: ##: ##:. ###::::::: ##:::: ##::. ##:: ##.... ##:: ##:: ##::::::::::|
+|. #######:: ##:::. ##: ########:. ######:::. #######:: ##::. ##::::::: ##:::: ##:::. ##: ##:::: ##:'####: ########::::|
+|:.......:::..:::::..::........:::......:::::.......:::..::::..::::::::..:::::..:::::..::..:::::..::....::........:::::|
+------------------------------------------------------------------------------------------------------------------------
+''')
+time.sleep(0.5)
+print('by:')
+print("-----------------------------------------------------------------------------------------------------------")
+time.sleep(0.1)
+print("|'##::: ##::::'###::::'########:'########:::::'######::'########:'##::::'##:'########::'########:'########:|")
+time.sleep(0.1)
+print("| ###:: ##:::'## ##:::... ##..:: ##.....:::::'##... ##:... ##..:: ##:::: ##: ##.... ##:... ##..::..... ##::|")
+time.sleep(0.1)
+print("| ####: ##::'##:. ##::::: ##:::: ##:::::::::: ##:::..::::: ##:::: ##:::: ##: ##:::: ##:::: ##:::::::: ##:::|")
+time.sleep(0.1)
+print("| ## ## ##:'##:::. ##:::: ##:::: ######::::::. ######::::: ##:::: ##:::: ##: ########::::: ##::::::: ##::::|")
+time.sleep(0.1)
+print("| ##. ####: #########:::: ##:::: ##...::::::::..... ##:::: ##:::: ##:::: ##: ##.. ##:::::: ##:::::: ##:::::|")
+time.sleep(0.1)
+print("| ##:. ###: ##.... ##:::: ##:::: ##::::::::::'##::: ##:::: ##:::: ##:::: ##: ##::. ##::::: ##::::: ##::::::|")
+time.sleep(0.1)
+print("| ##::. ##: ##:::: ##:::: ##:::: ########::::. ######::::: ##::::. #######:: ##:::. ##:::: ##:::: ########:|")
+time.sleep(0.1)
+print("|..::::..::..:::::..:::::..:::::........::::::......::::::..::::::.......:::..:::::..:::::..:::::........::|")
+time.sleep(0.1)
+print("------------------------------------------------------------------------------------------------------------")
+time.sleep(0.5)
+
 
 #asking name
 player_name = input('What is your name:')
@@ -39,7 +79,7 @@ while len(player_name) >= 0:
     player_name = input('What is your name:')
 
 #easter eggs for name
-if player_name == 'Nate Sturtz':
+if player_name == 'Nate Sturtz' or player_name == 'Nate' or player_name == 'nate' :
   year_set = 2005
   mode_choice = 'easter'
 else:
@@ -75,7 +115,7 @@ while len(mode_choice) >= 0:
 #easy mode:
   if mode_choice == 'easy':
     food_num = 999
-    health_num = 999
+    health_num = 10
     break
 #impossible mode:
   elif mode_choice == 'easter':
@@ -124,7 +164,7 @@ def add_days(min, max):
 
   #acident
   if acident_appear >= days_pass and acident_appear <= check_big:
-    a_number = random.randint(1, 4)
+    a_number = random.randint(1, 8)
     a_health_num = random.randint(1, 5)
     if a_number == 1:
       print('During this time, you crossed a river.')
@@ -134,6 +174,15 @@ def add_days(min, max):
       print('During this time, you fell in a hole')
     if a_number == 4:
       print('A storm hit')
+    if a_number == 5:
+      print('You got sick')
+    if a_number == 6:
+      print('A your weel broke')
+    if a_number == 7:
+      print('I am Groot')
+    if a_number == 8:
+      print('You died')
+      exit()
     random_result2_food = random.randint(1, 10)
     random_result2_day = random.randint(1, 10)
     print('As a result, you eat '+str(random_result2_food)+' lbs extra food.')
@@ -195,8 +244,8 @@ def hunt(hunting_food):
   global days_pass
   global hunt_total_num
   add_days(2,5)
-  hunting_food = hunting_food + 100
-  print('Gain: 100 lbs food')
+  hunting_food = hunting_food + 200
+  print('Gain: 200 lbs food')
   hunt_total_num += 1
   return hunting_food
 
@@ -242,7 +291,7 @@ time.sleep(2)
 print('Successfully!')
 time.sleep(0.5)
 print('Prepearing the trip for Oregon...')
-time.sleep(2)
+time.sleep(2.6)
 print('Successfully!')
 time.sleep(0.5)
 print('Now game is ready!')
@@ -252,6 +301,11 @@ print('We will be recreating Oregon Trail! The goal is to travel from New York C
 print('Oregon (2000 miles) by Dec 31st. However, the trail is arduous. Each')
 print('day costs you food and health. You can hunt and rest, but you have to')
 print('get there before winter. GOOD LUCK!')
+print('[travel]: moves you randomly between 30-60 miles and takes 3-7 days (random).')
+print('[rest]: increases health 1 level (up to 5 maximum) and takes 2-5 days (random).')
+print('[hunt]: adds 100 lbs of food and takes 2-5 days (random).')
+print('[status]: lists food, health, distance traveled, and day.')
+print('[quit]: will end the game.')
 print('----------------------------------------')
 
 #main
@@ -264,18 +318,18 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print('Warning! You only have '+ str(health_num) + " health now.")
     print('You need a rest.')
   print(str(player_name) + ', now it is ' + month_appear + ' '+str(days_pass) + ', ' + str(year_set) + ", and you have travled " + str(player_move_distance) + " miles.")
-  choice = input('Your choice:')
-  if choice == 'travel':
+  choice = input('Your choice (Travel, Rest, Hunt, Status):')
+  if choice == 'travel' or choice == 'Travel':
     player_move_distance = travle1(player_move_distance)
-  elif choice == 'rest':
+  elif choice == 'rest' or choice == 'Rest':
     if health_num < 5:
       print("You get 1 heath!")
       health_num = rest(health_num)
     if health_num >= 5:
       print("Your health is full, the maximum number for health is 5!")
-  elif choice == 'hunt':
+  elif choice == 'hunt' or choice == 'Hunt':
     food_num = hunt(food_num)
-  elif choice == 'status':
+  elif choice == 'status' or choice =='Status':
     print('-Dear ' + str(player_name) + ', now is '+str(month_num)+'/'+str(days_pass)+'/'+str(year_set)+".")
     print('-Food:',food_num,"lbs")
     print('-Health:',health_num)
@@ -284,13 +338,13 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print('-'+str(total_days) +' days have passed.')
     print('-You have travled ' + str(player_move_distance) + " miles, there is still " + str(distance_left) + ' miles left.')
     status_total_num += 1
-  elif choice == 'help':
+  elif choice == 'help' or choice == 'Hunt':
     print('[travel]: moves you randomly between 30-60 miles and takes 3-7 days (random).')
     print('[rest]: increases health 1 level (up to 5 maximum) and takes 2-5 days (random).')
     print('[hunt]: adds 100 lbs of food and takes 2-5 days (random).')
     print('[status]: lists food, health, distance traveled, and day.')
     print('[quit]: will end the game.')
-  elif choice == 'quit':
+  elif choice == 'quit' or choice == 'Quit':
     quit_choice = input('Are you sure that you want to quit?(y/n)')
     if quit_choice == 'y':
       print('Game over...I cannot believe that you quit...')
@@ -300,7 +354,7 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     if quit_choice2 == 'y':
       print('Game over...You killed yourself...')
       break
-  elif choice == 'Sturtz Network':
+  elif choice == 'about':
     print("-----------------------------------------------------------------------------------------------------------")
     print("|'##::: ##::::'###::::'########:'########:::::'######::'########:'##::::'##:'########::'########:'########:|")
     print("| ###:: ##:::'## ##:::... ##..:: ##.....:::::'##... ##:... ##..:: ##:::: ##: ##.... ##:... ##..::..... ##::|")
@@ -311,21 +365,10 @@ while player_move_distance < 2000 and food_num > 0 and health_num > 0 and month_
     print("| ##::. ##: ##:::: ##:::: ##:::: ########::::. ######::::: ##::::. #######:: ##:::. ##:::: ##:::: ########:|")
     print("|..::::..::..:::::..:::::..:::::........::::::......::::::..::::::.......:::..:::::..:::::..:::::........::|")
     print("------------------------------------------------------------------------------------------------------------")
-    print("==============================================================================================================================================")
-    print("---------------------------------------------------------------------------------------------------------------------------------------------")
-    print("|:'######::'########:'##::::'##:'########::'########:'########::::'##::: ##:'########:'########:'##:::::'##::'#######::'########::'##:::'##:|")
-    print("|'##... ##:... ##..:: ##:::: ##: ##.... ##:... ##..::..... ##::::: ###:: ##: ##.....::... ##..:: ##:'##: ##:'##.... ##: ##.... ##: ##::'##::|")
-    print("| ##:::..::::: ##:::: ##:::: ##: ##:::: ##:::: ##:::::::: ##:::::: ####: ##: ##:::::::::: ##:::: ##: ##: ##: ##:::: ##: ##:::: ##: ##:'##:::|")
-    print("|. ######::::: ##:::: ##:::: ##: ########::::: ##::::::: ##::::::: ## ## ##: ######:::::: ##:::: ##: ##: ##: ##:::: ##: ########:: #####::::|")
-    print("|:..... ##:::: ##:::: ##:::: ##: ##.. ##:::::: ##:::::: ##:::::::: ##. ####: ##...::::::: ##:::: ##: ##: ##: ##:::: ##: ##.. ##::: ##. ##:::|")
-    print("|'##::: ##:::: ##:::: ##:::: ##: ##::. ##::::: ##::::: ##::::::::: ##:. ###: ##:::::::::: ##:::: ##: ##: ##: ##:::: ##: ##::. ##:: ##:. ##::|")
-    print("|. ######::::: ##::::. #######:: ##:::. ##:::: ##:::: ########:::: ##::. ##: ########:::: ##::::. ###. ###::. #######:: ##:::. ##: ##::. ##:|")
-    print("|:......::::::..::::::.......:::..:::::..:::::..:::::........:::::..::::..::........:::::..::::::...::...::::.......:::..:::::..::..::::..::|")
-    print("--------------------------------------------------------------------------------------------------------------------------------------------")
     print('verson:0.0.3')
     print('author: Nate Sturtz')
-    print('Technical nerd change the world!')
-    print('Any bug reports please email: nate.sturtz.net@gmail.com')
+    #print('Technical nerd change the world!')
+    #print('Any bug reports please email: nate.sturtz.net@gmail.com')
     print('Thanks for playing!')
   else:
     print("This Choice is not available, please try again.")
@@ -349,6 +392,3 @@ print('Travel ' + str(travel_total_num) +' times.')
 print('Rest ' + str(rest_total_num) +' times.')
 print('Hunt ' + str(hunt_total_num) +' times.')
 print('Status ' + str(status_total_num) +' times.')
-
-#restart
-#restart_choice = input('Do you want to restart the game?')
