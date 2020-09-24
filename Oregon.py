@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-'''
-update histoty
+changelog = '''
 --0.0.1:
 Yeah! The fisrt beta version is published!
 --0.0.2:
@@ -20,7 +19,13 @@ Made a list of Easter Names
 Bugs, see https://stackoverflow.com/questions/64051327/how-do-i-check-if-a-name-is-among-a-list-of-names-in-python for more details
 Name list
 Now you have to run it with python3
+--0.0.4
+Added the Hard Mode
+Edited the about screen
+added versioning
+added changelog command
 '''
+
 #import
 import random
 import time
@@ -63,14 +68,14 @@ time.sleep(0.1)
 print("------------------------------------------------------------------------------------------------------------")
 time.sleep(0.5)
 
-
+version_num = '0.0.4'
 #asking name
 player_name = input('What is your name:')
 while len(player_name) >= 0:
   if len(player_name) > 1:
-    print("Weclome" + str(player_name))
+    print("Weclome " + str(player_name))
     print('Which mode do you want to play?')
-    mode_choice = input('(easy) More modes comming soon:')
+    mode_choice = input('(easy, hard):')
     break
   if len(player_name) == 1:
     player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regreat it (Y/N):")
@@ -97,7 +102,10 @@ if easter_mode == 1:
   mode_choice = 'easter'
 else:
   year_set = input('Enter a year whatever you like:')
-  if year_set.isdigit():
+  if year_set == 2020:
+    mode_choice = 'easter'
+    print('This was a hard year')
+  elif year_set.isdigit():
     return_num = 0
   else:
     return_num = 1
@@ -126,12 +134,18 @@ else:
 
 while len(mode_choice) >= 0:
 #easy mode:
-  if mode_choice == 'easy':
+  if mode_choice == 'easy' or mode_choice == 'Easy':
     food_num = 999
     health_num = 10
     max_health = 10
     break
-#impossible mode:
+#Hard Mode
+  if mode_choice == 'hard' or mode_choice == 'Hard':
+    food_num = 100
+    health_num = 9
+    max_health = 7
+    break
+#Easter mode:
   elif mode_choice == 'easter':
     food_num = 10
     health_num = 3
@@ -140,7 +154,8 @@ while len(mode_choice) >= 0:
 #error
   else:
     print("Bad input, try again!")
-    mode_choice = input('(easy) More modes are comming soon:')
+    mode_choice = input('(easy, hard):')
+
 
 
 #other basic strating value setting
@@ -321,6 +336,7 @@ print('[rest]: increases health 1 level (up to 5 maximum) and takes 2-5 days (ra
 print('[hunt]: adds 100 lbs of food and takes 2-5 days (random).')
 print('[status]: lists food, health, distance traveled, and day.')
 print('[quit]: will end the game.')
+print('version: ' + version_num)
 print('----------------------------------------')
 
 #main
@@ -370,21 +386,35 @@ while player_move_distance < 2170 and food_num > 0 and health_num > 0 and month_
       print('Game over...You killed yourself...')
       break
   elif choice == 'about':
+    time.sleep(0.5)
+    print('by:')
     print("-----------------------------------------------------------------------------------------------------------")
+    time.sleep(0.2)
     print("|'##::: ##::::'###::::'########:'########:::::'######::'########:'##::::'##:'########::'########:'########:|")
+    time.sleep(0.2)
     print("| ###:: ##:::'## ##:::... ##..:: ##.....:::::'##... ##:... ##..:: ##:::: ##: ##.... ##:... ##..::..... ##::|")
+    time.sleep(0.2)
     print("| ####: ##::'##:. ##::::: ##:::: ##:::::::::: ##:::..::::: ##:::: ##:::: ##: ##:::: ##:::: ##:::::::: ##:::|")
+    time.sleep(0.2)
     print("| ## ## ##:'##:::. ##:::: ##:::: ######::::::. ######::::: ##:::: ##:::: ##: ########::::: ##::::::: ##::::|")
+    time.sleep(0.2)
     print("| ##. ####: #########:::: ##:::: ##...::::::::..... ##:::: ##:::: ##:::: ##: ##.. ##:::::: ##:::::: ##:::::|")
+    time.sleep(0.2)
     print("| ##:. ###: ##.... ##:::: ##:::: ##::::::::::'##::: ##:::: ##:::: ##:::: ##: ##::. ##::::: ##::::: ##::::::|")
+    time.sleep(0.2)
     print("| ##::. ##: ##:::: ##:::: ##:::: ########::::. ######::::: ##::::. #######:: ##:::. ##:::: ##:::: ########:|")
+    time.sleep(0.2)
     print("|..::::..::..:::::..:::::..:::::........::::::......::::::..::::::.......:::..:::::..:::::..:::::........::|")
+    time.sleep(0.2)
     print("------------------------------------------------------------------------------------------------------------")
-    print('verson:0.0.3')
+    time.sleep(0.5)
+    print('verson: ' + version_num)
     print('author: Nate Sturtz')
     #print('Technical nerd change the world!')
     #print('Any bug reports please email: nate.sturtz.net@gmail.com')
     print('Thanks for playing!')
+  elif choice == 'changelog':
+    print(changelog)
   else:
     print("This Choice is not available, please try again.")
   print('-------------------------------------------------')
