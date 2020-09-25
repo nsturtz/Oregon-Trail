@@ -23,6 +23,10 @@ Now you have to run it with python3
 Added the Hard Mode
 Added diffrent lengths
 Bugs
+--0.0.5
+Edited Names
+Removed Disaters
+Fixed Speed
 '''
 
 #import
@@ -89,7 +93,7 @@ while len(player_name) >= 0:
     player_name = input('What is your name:')
 
 #Check Easter Egg Names
-easter_names = ["nate sturtz","Nate Sturtz", "Nate", "nate", "Sturtz", "sturtz"]
+easter_names = ["nate sturtz","Nate Sturtz", "Sturtz", "sturtz"]
 if player_name in easter_names:
     easter_mode = 1
 else:
@@ -204,7 +208,7 @@ def add_days(min, max):
 
   #acident
   if acident_appear == 1:
-    a_number = random.randint(1, 9)
+    a_number = random.randint(1, 8)
     a_health_num = random.randint(1, 5)
     if a_number == 1:
       print('During this time, you crossed a river.')
@@ -221,17 +225,8 @@ def add_days(min, max):
     if a_number == 7:
       print('During this time, you found a puppy wolf, then there mother started to chase you and had to hide up a tree')
     if a_number == 8:
-      print('Your horse died')
+      print('During this time, Your horse died')
       health_num = 3
-    if a_number == 9:
-      print('Your going to have a bad day')
-      print('here is some bad news you now have to go an added 4,000 miles, you have 100 lb of food and but you health is 500!')
-      month_num = 3
-      days_pass = 1
-      total_days = 0
-      distance = 4000
-      food_num = 100
-      health_num = 500
     random_result2_food = random.randint(1, 10)
     random_result2_day = random.randint(1, 10)
     print('As a result, you eat '+str(random_result2_food)+' lbs extra food.')
@@ -338,15 +333,15 @@ print('--------------------------------------')
 print('Now Loding...')
 time.sleep(0.5)
 print('Now loading the player setting...')
-time.sleep(2)
+time.sleep(0.5)
 print('Successfully!')
 time.sleep(0.5)
 print('Now loading the game setting...')
-time.sleep(2)
+time.sleep(0.9)
 print('Successfully!')
 time.sleep(0.5)
 print('Prepearing the trip for Oregon...')
-time.sleep(2.6)
+time.sleep(1)
 print('Successfully!')
 time.sleep(0.5)
 print('Now game is ready!')
