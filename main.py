@@ -71,7 +71,7 @@ time.sleep(0.1)
 print("------------------------------------------------------------------------------------------------------------")
 time.sleep(0.5)
 
-version_num = '0.0.4'
+version_num = '0.0.5'
 #asking name
 player_name = input('What is your name:')
 while len(player_name) >= 0:
@@ -332,6 +332,7 @@ def month_appear_fun():
 print('--------------------------------------')
 print('Now Loding...')
 time.sleep(0.5)
+print('Version: ' + version_num)
 print('Now loading the player setting...')
 time.sleep(0.5)
 print('Successfully!')
@@ -356,6 +357,8 @@ print('[rest]: increases health 1 level (up to 5 maximum) and takes 2-5 days (ra
 print('[hunt]: adds 100 lbs of food and takes 2-5 days (random).')
 print('[status]: lists food, health, distance traveled, and day.')
 print('[quit]: will end the game.')
+print('[chnagelog]: will print out the changelog')
+print('[about]: will print out the about page')
 print('version: ' + version_num)
 print('----------------------------------------')
 
