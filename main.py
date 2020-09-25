@@ -21,7 +21,8 @@ Name list
 Now you have to run it with python3
 --0.0.4
 Added the Hard Mode
-Added different lengths
+Added diffrent lengths
+Bugs
 '''
 
 #import
@@ -45,7 +46,7 @@ print('''
 ''')
 time.sleep(0.5)
 print('by:')
-print("-----------------------------------------------------------------------------------------------------------")
+print("------------------------------------------------------------------------------------------------------------")
 time.sleep(0.1)
 print("|'##::: ##::::'###::::'########:'########:::::'######::'########:'##::::'##:'########::'########:'########:|")
 time.sleep(0.1)
@@ -73,7 +74,7 @@ while len(player_name) >= 0:
   if len(player_name) > 1:
     print("Weclome " + str(player_name))
     print('Which mode do you want to play?')
-    mode_choice = input('(easy, hard):')
+    mode_choice = input('easy, hard, vh (very hard):')
     break
   if len(player_name) == 1:
     player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regreat it (Y/N):")
@@ -145,6 +146,12 @@ while len(mode_choice) >= 0:
     max_health = 7
     distance = 3000
     break
+  if mode_choice == 'vh' or mode_choice == 'Very Hard' or mode_choice == 'very hard' or mode_choice == 'VH':
+    food_num = 50
+    health_num = 6
+    max_health = 5
+    distance = 3170
+    break
 #Easter mode:
   elif mode_choice == 'easter':
     food_num = 10
@@ -155,7 +162,7 @@ while len(mode_choice) >= 0:
 #error
   else:
     print("Bad input, try again!")
-    mode_choice = input('(easy, hard):')
+    mode_choice = input('(easy, hard, vh or very hard):')
 
 
 
@@ -168,13 +175,15 @@ MONTHS_WITH_31_DAYS = [1, 3, 5, 7, 8, 10, 12]
 random_result = 0
 health_d1 = random.randint(1, 31)
 health_d2 = random.randint(1, 31)
-acident_appear = random.randint(1, 5)
 travel_total_num = 0
 rest_total_num = 0
 hunt_total_num = 0
 status_total_num = 0
 month_appear = 'March'
-
+if easter_mode == 1:
+  acident_appear = 1
+else:
+  acident_appear = random.randint(1, 3)
 #add days:
 def add_days(min, max):
   global days_pass
@@ -194,8 +203,8 @@ def add_days(min, max):
   check_big = days_pass + random_result
 
   #acident
-  if acident_appear == 1 or easter_mode == 1:
-    a_number = random.randint(1, 8)
+  if acident_appear == 1:
+    a_number = random.randint(1, 9)
     a_health_num = random.randint(1, 5)
     if a_number == 1:
       print('During this time, you crossed a river.')
@@ -204,16 +213,25 @@ def add_days(min, max):
     if a_number == 3:
       print('During this time, you fell in a hole')
     if a_number == 4:
-      print('A storm hit')
+      print('During this time, a storm hit')
     if a_number == 5:
-      print('You got sick')
+      print('During this time, you got sick')
     if a_number == 6:
-      print('A your weel broke')
+      print('During this time, your wheel broke')
     if a_number == 7:
-      print('I am Groot')
+      print('During this time, you found a puppy wolf, then there mother started to chase you and had to hide up a tree')
     if a_number == 8:
-      print('You died')
-      exit()
+      print('Your horse died')
+      health_num = 3
+    if a_number == 9:
+      print('Your going to have a bad day')
+      print('here is some bad news you now have to go an added 4,000 miles, you have 100 lb of food and but you health is 500!')
+      month_num = 3
+      days_pass = 1
+      total_days = 0
+      distance = 4000
+      food_num = 100
+      health_num = 500
     random_result2_food = random.randint(1, 10)
     random_result2_day = random.randint(1, 10)
     print('As a result, you eat '+str(random_result2_food)+' lbs extra food.')
@@ -245,14 +263,20 @@ def add_days(min, max):
         month_num += 1
         health_d1 = random.randint(1, 30)
         health_d2 = random.randint(1, 30)
-        acident_appear == random.randint(1, 30)
+        if easter_mode == 1:
+            acident_appear = 1
+        else:
+            acident_appear = random.randint(1, 3)
     else:
       if days_pass > 31:
         days_pass -= 31
         month_num += 1
         health_d1 = random.randint(1, 30)
         health_d2 = random.randint(1, 30)
-        acident_appear == random.randint(1, 30)
+        if easter_mode == 1:
+            acident_appear = 1
+        else:
+            acident_appear = random.randint(1, 4)
 
 #function part
 def travle1(movedistance):
@@ -264,19 +288,19 @@ def travle1(movedistance):
   return movedistance
 
 def rest(health):
-  global days_pass
+  global days_passd
   global rest_total_num
-  add_days(2,5)
-  health = health + 1
-  rest_total_num += 1
+  add_days(2,50)
+  health = health + 10
+  rest_total_num += 10
   return health
 
 def hunt(hunting_food):
   global days_pass
   global hunt_total_num
-  add_days(2,5)
-  hunting_food = hunting_food + 100
-  print('Gain: 100 lbs food')
+  add_days(2,30)
+  hunting_food = food_num + random.randint(1, 600)
+  print('Gain:' + str(hunting_food) +  'lbs food')
   hunt_total_num += 1
   return hunting_food
 
@@ -343,10 +367,10 @@ print('----------------------------------------')
 #main
 while player_move_distance < distance and food_num > 0 and health_num > 0 and month_num < 13:
   month_appear_fun()
-  if food_num <= 50:
+  if food_num <= 10:
     print('Warning! You only have '+ str(food_num) + " lbs food now.")
     print('You need hunt now.')
-  if health_num <= 2:
+  if health_num <= 1:
     print('Warning! You only have '+ str(health_num) + " health now.")
     print('You need a rest.')
   print(str(player_name) + ', now it is ' + month_appear + ' '+str(days_pass) + ', ' + str(year_set) + ", and you have travled " + str(player_move_distance) + " miles.")
