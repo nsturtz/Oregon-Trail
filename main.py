@@ -1,3 +1,6 @@
+#####
+#SOF#
+#####
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 changelog = '''
@@ -29,12 +32,13 @@ Removed Disasters
 Fixed Speed
 '''
 
-#import
+##Start IMPORT
 import random
 import time
 #import smtplib send email import
-
-#welcome player
+##End IMPORT
+##Start WELCOME player
+##Start ASCII Art
 print('Welcome to the')
 print('''
 ------------------------------------------------------------------------------------------------------------------------
@@ -70,9 +74,9 @@ print("|..::::..::..:::::..:::::..:::::........::::::......::::::..::::::.......
 time.sleep(0.1)
 print("------------------------------------------------------------------------------------------------------------")
 time.sleep(0.5)
-
+##End ASCII Art
 version_num = '0.0.5'
-#asking name
+##Start ASKING for the Player's Name
 player_name = input('What is your name:')
 while len(player_name) >= 0:
   if len(player_name) > 1:
@@ -92,13 +96,13 @@ while len(player_name) >= 0:
     print("You do not type anything, try again")
     player_name = input('What is your name:')
 
-#Check Easter Egg Names
+##Start THE Check Easter Egg Names
 easter_names = ["nate sturtz","Nate Sturtz", "Sturtz", "sturtz"]
 if player_name in easter_names:
     easter_mode = 1
 else:
     easter_mode = 0
-#easter eggs for name
+##Start THE easter egg check for name
 
 if easter_mode == 1:
   year_set = 2005
@@ -460,3 +464,6 @@ print('Travel ' + str(travel_total_num) +' times.')
 print('Rest ' + str(rest_total_num) +' times.')
 print('Hunt ' + str(hunt_total_num) +' times.')
 print('Status ' + str(status_total_num) +' times.')
+#####
+#EOF#
+#####
