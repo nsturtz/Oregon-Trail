@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 changelog = '''
 --0.0.1:
-Yeah! The fisrt beta version is published!
+Yeah! The first beta version is published!
 --0.0.2:
 More Disasters
 --0.0.3:
@@ -11,9 +11,9 @@ ASCII Art Easter egg
 Added more Disasters
 Changed the ASCII Easter Egg Art
 Changed the Name Easter Egg
-Added the Options to the weclome screen
-Added Weclome ASCII art
-Acidents are more common
+Added the Options to the welcome screen
+Added Welcome ASCII art
+Accidents are more common
 Made the road from 2000 to 2170
 Made a list of Easter Names
 Bugs, see https://stackoverflow.com/questions/64051327/how-do-i-check-if-a-name-is-among-a-list-of-names-in-python for more details
@@ -21,11 +21,11 @@ Name list
 Now you have to run it with python3
 --0.0.4
 Added the Hard Mode
-Added diffrent lengths
+Added different lengths
 Bugs
 --0.0.5
 Edited Names
-Removed Disaters
+Removed Disasters
 Fixed Speed
 '''
 
@@ -34,7 +34,7 @@ import random
 import time
 #import smtplib send email import
 
-#welcom player
+#welcome player
 print('Welcome to the')
 print('''
 ------------------------------------------------------------------------------------------------------------------------
@@ -76,12 +76,12 @@ version_num = '0.0.5'
 player_name = input('What is your name:')
 while len(player_name) >= 0:
   if len(player_name) > 1:
-    print("Weclome " + str(player_name))
+    print("Welcome " + str(player_name))
     print('Which mode do you want to play?')
     mode_choice = input('easy, hard, vh (very hard):')
     break
   if len(player_name) == 1:
-    player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regreat it (Y/N):")
+    player_name_choice = input(str(player_name)+"? Are you kidding me? Only one letter? You might regret it (Y/N):")
     if player_name_choice == "y" or player_name_choice == "Y":
       print("Ok Your Choice!!...")
       mode_choice = 'easter'
@@ -170,7 +170,7 @@ while len(mode_choice) >= 0:
 
 
 
-#other basic strating value setting
+#other basic starting value setting
 player_move_distance = 0
 month_num = 3
 days_pass = 1
@@ -185,9 +185,9 @@ hunt_total_num = 0
 status_total_num = 0
 month_appear = 'March'
 if easter_mode == 1:
-  acident_appear = 1
+  accident_appear = 1
 else:
-  acident_appear = random.randint(1, 3)
+  accident_appear = random.randint(1, 3)
 #add days:
 def add_days(min, max):
   global days_pass
@@ -199,15 +199,15 @@ def add_days(min, max):
   global health_d1
   global health_d2
   global total_days
-  global acident_appear
+  global accident_appear
 
   random_result = random.randint(min, max)
   print('Now',random_result,"days passed..")
   days_pass_min = days_pass
   check_big = days_pass + random_result
 
-  #acident
-  if acident_appear == 1:
+  #accident
+  if accident_appear == 1:
     a_number = random.randint(1, 8)
     a_health_num = random.randint(1, 5)
     if a_number == 1:
@@ -230,7 +230,7 @@ def add_days(min, max):
     random_result2_food = random.randint(1, 10)
     random_result2_day = random.randint(1, 10)
     print('As a result, you eat '+str(random_result2_food)+' lbs extra food.')
-    print('It also took up eatra '+str(random_result2_day)+' days.')
+    print('It also took up extra '+str(random_result2_day)+' days.')
     if a_health_num == 1:
       print('And you also lose 1 health')
       health_num -= 1
@@ -259,9 +259,9 @@ def add_days(min, max):
         health_d1 = random.randint(1, 30)
         health_d2 = random.randint(1, 30)
         if easter_mode == 1:
-            acident_appear = 1
+            accident_appear = 1
         else:
-            acident_appear = random.randint(1, 3)
+            accident_appear = random.randint(1, 3)
     else:
       if days_pass > 31:
         days_pass -= 31
@@ -269,9 +269,9 @@ def add_days(min, max):
         health_d1 = random.randint(1, 30)
         health_d2 = random.randint(1, 30)
         if easter_mode == 1:
-            acident_appear = 1
+            accident_appear = 1
         else:
-            acident_appear = random.randint(1, 4)
+            accident_appear = random.randint(1, 4)
 
 #function part
 def travle1(movedistance):
@@ -330,7 +330,7 @@ def month_appear_fun():
 
 #loading part
 print('--------------------------------------')
-print('Now Loding...')
+print('Now Loading...')
 time.sleep(0.5)
 print('Version: ' + version_num)
 print('Now loading the player setting...')
@@ -341,14 +341,14 @@ print('Now loading the game setting...')
 time.sleep(0.9)
 print('Successfully!')
 time.sleep(0.5)
-print('Prepearing the trip for Oregon...')
+print('Preparing the trip for Oregon...')
 time.sleep(1)
 print('Successfully!')
 time.sleep(0.5)
 print('Now game is ready!')
 print('----------------------------------------')
 print('Attention:')
-print('We will be travling Oregon Trail! The goal is to travel from New York City to')
+print('We will be traveling Oregon Trail! The goal is to travel from New York City to')
 print('Oregon ('+ str(distance) +  ' miles) by Dec 31st. However, the trail is arduous. Each')
 print('day costs you food and health. You can hunt and rest, but you have to')
 print('get there before winter. GOOD LUCK!')
@@ -357,7 +357,7 @@ print('[rest]: increases health 1 level (up to 5 maximum) and takes 2-5 days (ra
 print('[hunt]: adds 100 lbs of food and takes 2-5 days (random).')
 print('[status]: lists food, health, distance traveled, and day.')
 print('[quit]: will end the game.')
-print('[chnagelog]: will print out the changelog')
+print('[changelog]: will print out the changelog')
 print('[about]: will print out the about page')
 print('version: ' + version_num)
 print('----------------------------------------')
@@ -371,7 +371,7 @@ while player_move_distance < distance and food_num > 0 and health_num > 0 and mo
   if health_num <= 1:
     print('Warning! You only have '+ str(health_num) + " health now.")
     print('You need a rest.')
-  print(str(player_name) + ', now it is ' + month_appear + ' '+str(days_pass) + ', ' + str(year_set) + ", and you have travled " + str(player_move_distance) + " miles.")
+  print(str(player_name) + ', now it is ' + month_appear + ' '+str(days_pass) + ', ' + str(year_set) + ", and you have travelled " + str(player_move_distance) + " miles.")
   choice = input('Your choice (Travel, Rest, Hunt, Status):')
   if choice == 'travel' or choice == 'Travel':
     player_move_distance = travle1(player_move_distance)
@@ -387,10 +387,10 @@ while player_move_distance < distance and food_num > 0 and health_num > 0 and mo
     print('-Dear ' + str(player_name) + ', now is '+str(month_num)+'/'+str(days_pass)+'/'+str(year_set)+".")
     print('-Food:',food_num,"lbs")
     print('-Health:',health_num)
-    print('-Distance traveled:',player_move_distance)
+    print('-Distance travelled:',player_move_distance)
     distance_left = distance - player_move_distance
     print('-'+str(total_days) +' days have passed.')
-    print('-You have travled ' + str(player_move_distance) + " miles, there is still " + str(distance_left) + ' miles left.')
+    print('-You have traveled ' + str(player_move_distance) + " miles, there is still " + str(distance_left) + ' miles left.')
     status_total_num += 1
   elif choice == 'help' or choice == 'Hunt':
     print('[travel]: moves you randomly between 30-60 miles and takes 3-7 days (random).')
@@ -431,7 +431,7 @@ while player_move_distance < distance and food_num > 0 and health_num > 0 and mo
     time.sleep(0.2)
     print("------------------------------------------------------------------------------------------------------------")
     time.sleep(0.5)
-    print('verson: ' + version_num)
+    print('version: ' + version_num)
     print('author: Nate Sturtz')
     #print('Technical nerd change the world!')
     #print('Any bug reports please email: nate.sturtz.net@gmail.com')
@@ -453,7 +453,7 @@ if health_num <= 0:
   print('Game over, you have no health now.')
 
 if month_num >= 13:
-  print('Game over, you run out of time!')
+  print('Game over, you ran out of time!')
 
 print('During the whole game, you:')
 print('Travel ' + str(travel_total_num) +' times.')
